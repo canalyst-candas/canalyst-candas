@@ -89,7 +89,7 @@ model_set.model_frame(time_series_name="MO_RIS_REV",
 Candas has a Canalyst standard charting library which allows for easy visualizations.
 
 Chart Example:
-![Chart](c1.jpg)
+![Chart](https://github.com/canalyst-candas/canalyst-candas/blob/main/c1.JPG)
 
 ```
 df_plot = df[df['ticker'].isin(['AZUL US','MESA US'])][['ticker','period_name','value']].pivot_table(values="value", index=["period_name"],columns=["ticker"]).reset_index()
@@ -128,7 +128,7 @@ model_set.create_model_map(ticker=ticker,time_series_name="MO_RIS_REV",col_for_l
 
 <b>ModelMap and Scenario Engine Together:</b>
 ModelMap example: Node Chart for Fuel Margin
-![Fuel Margin](c2.jpg)
+![Fuel Margin](https://github.com/canalyst-candas/canalyst-candas/blob/main/c2.JPG)
 
 KPI Importance: Use the same node tree to extract key drivers, then use our scenario engine to rank order 1% changes in KPI driver vs subsequent revenue change
 
@@ -162,7 +162,7 @@ df['diff'] = df['diff']-1
 df = df.sort_values('diff')
 df.plot(x='time_series_name',y='diff',kind='barh',title=ticker+" Key Drivers Revenue Sensitivity")
 ```
-![KPI Rank](c3.jpg)
+![KPI Rank](https://github.com/canalyst-candas/canalyst-candas/blob/main/c3.JPG)
 
 
 ## Support
