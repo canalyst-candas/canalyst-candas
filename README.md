@@ -24,14 +24,14 @@ Candas is built to facilitate easy discovery of guidance in our Modelverse.  You
 
 Example:
 
-`
+```
 canalyst_search.search_guidance_time_series(ticker = "", #any ticker or list of tickers 
                 sector="Consumer", #path in our nomenclature is a hierarchy of sectors
                 file_name="", #file name is a proxy for company name
                 time_series_name="", #our range name
                 time_series_description="china", #human readable row header
                 most_recent=True) #most recent item or all items 
-`
+```
 
 <b>Search KPI:</b>
 
@@ -39,7 +39,7 @@ Candas is built to facilitate easy discovery of KPI names in our Modelverse.  Yo
 
 Example:
 
-`
+```
 canalyst_search.search_time_series(ticker = "",
                  sector="Thrifts",
                  category="",
@@ -49,7 +49,7 @@ canalyst_search.search_time_series(ticker = "",
                  time_series_name='',
                  time_series_description='total revenue growth', #guessing on the time series name
                  query = 'value > 5')
-`
+```
 
 <b>ModelSet:</b>
 
@@ -70,7 +70,7 @@ It is the workhorse of the Model or ModelSet objects, the default parameters are
 
 Example:
 
-`
+```
 model_set.model_frame(time_series_name="MO_RIS_REV",
                   is_driver="",
                   pivot=False,
@@ -81,7 +81,7 @@ model_set.model_frame(time_series_name="MO_RIS_REV",
                   mrq_notation=False)
 `
 
-`
+```
 
 <b>Charting:</b>
 
@@ -90,11 +90,11 @@ Candas has a Canalyst standard charting library which allows for easy visualizat
 Chart Example:
 ![download__5_](/uploads/b1f8559054df96689cf1df92a47fa0e6/download__5_.png)
 
-`
+```
 df_plot = df[df['ticker'].isin(['AZUL US','MESA US'])][['ticker','period_name','value']].pivot_table(values="value", index=["period_name"],columns=["ticker"]).reset_index()
 p = cd.Chart(df_plot['period_name'],df_plot[["AZUL US", "MESA US"]],["AZUL US", "MESA US"], [["Periods", "Actual"]], title="MO_MA_Fuel")
 p.show()
-`
+```
 
 <b>Scenario Analysis:</b>
 
@@ -121,9 +121,9 @@ Candas can show a node tree at any level of the PNL
 
 Example:
 
-`
+```
 model_set.create_model_map(ticker=ticker,time_series_name="MO_RIS_REV",col_for_labels = "time_series_description").show() #launches in a separate browser window
-`
+```
 
 ModelMap example: Visa Revenue Build
 ![visa](/uploads/f9fa9365324d7c5fe99a54be4a70a8b4/visa.png)
