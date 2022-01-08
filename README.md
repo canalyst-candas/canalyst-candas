@@ -102,7 +102,7 @@ Candas can arrange a forecast and send it to our scenario engine via the fit() f
 
 Example:
 
-`
+```
 return_series = "MO_RIS_EPS_WAD_Adj"
 list_output = []
 for ts in time_series_names:
@@ -113,7 +113,7 @@ for ts in time_series_names:
     dicts_output=model_set.fit(df_params,return_series)
     for key in dicts_output.keys():
         list_output.append(dicts_output[key].head(1))
-`
+```
 
 <b>ModelMap:</b>
 
@@ -125,6 +125,7 @@ Example:
 model_set.create_model_map(ticker=ticker,time_series_name="MO_RIS_REV",col_for_labels = "time_series_description").show() #launches in a separate browser window
 ```
 
+<b>ModelMap and Scenario Engine Together:</b>
 ModelMap example: Node Chart for Fuel Margin
 ![Fuel Margin](c2.jpg)
 
