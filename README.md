@@ -130,7 +130,11 @@ model_set.create_model_map(ticker=ticker,time_series_name="MO_RIS_REV",col_for_l
 ModelMap example: Node Chart for Fuel Margin
 ![Fuel Margin](https://github.com/canalyst-candas/canalyst-candas/blob/main/c2.JPG)
 
-KPI Importance: Use the same node tree to extract key drivers, then use our scenario engine to rank order 1% changes in KPI driver vs subsequent revenue change
+<b>KPI Importance / Scenario Engine:</b> 
+
+Use the same node tree to extract key drivers, then use our scenario engine to rank order 1% changes in KPI driver vs subsequent revenue change
+
+Example:
 
 ```
 #use the same node tree to extract key drivers (red nodes in the map)
