@@ -12,6 +12,7 @@ A data science library using Canalyst's API, developed for securities analysis u
 - Charts
 - Model update (scenario analysis)
 - Visualize formula builds
+- Run scenarios against the model itself
 
 ## Installation
 Installation instructions can be found on our [PyPI page](https://pypi.org/project/canalyst-candas/)
