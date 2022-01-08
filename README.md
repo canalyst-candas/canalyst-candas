@@ -88,7 +88,7 @@ model_set.model_frame(time_series_name="MO_RIS_REV",
 Candas has a Canalyst standard charting library which allows for easy visualizations.
 
 Chart Example:
-![download__5_](/uploads/b1f8559054df96689cf1df92a47fa0e6/download__5_.png)
+![Chart](c1.png)
 
 ```
 df_plot = df[df['ticker'].isin(['AZUL US','MESA US'])][['ticker','period_name','value']].pivot_table(values="value", index=["period_name"],columns=["ticker"]).reset_index()
@@ -125,8 +125,42 @@ Example:
 model_set.create_model_map(ticker=ticker,time_series_name="MO_RIS_REV",col_for_labels = "time_series_description").show() #launches in a separate browser window
 ```
 
-ModelMap example: Visa Revenue Build
-![visa](/uploads/f9fa9365324d7c5fe99a54be4a70a8b4/visa.png)
+ModelMap example: Node Chart for Fuel Margin
+![Fuel Margin](c2.png)
+
+KPI Importance: Use the same node tree to extract key drivers, then use our scenario engine to rank order 1% changes in KPI driver vs subsequent revenue change
+
+```
+#use the same node tree to extract key drivers (red nodes in the map)
+df = model_set.models[ticker].key_driver_map("MO_RIS_REV")
+return_series = 'MO_RIS_REV'
+driver_list_df = []
+for i, row in df.iterrows():
+
+    time_series_name = row['time_series_name']
+    print(f"scenario: move {time_series_name} 1% and get resultant change in {return_series}")
+
+    #create a param dataframe for each time series name in our list
+    df_1_param = model_set.forecast_frame(time_series_name,
+                         n_periods=-1,
+                         function_name='multiply',
+                         function_value=1.01)
+
+
+    d_output=model_set.fit(df_1_param,return_series) #our fit function will return a link to scenario engine JSON for audit
+
+    df_output = model_set.filter_summary(d_output,period_type='Q')
+
+    df_merge = pd.merge(df_output,df_1_param,how='inner',left_on=['ticker','period_name'],right_on=['ticker','period_name'])
+
+    driver_list_df.append(df_merge) #append to a list for concatenating at the end
+df = pd.concat(driver_list_df).sort_values('diff',ascending=False)[['ticker','time_series_name_y','diff']]
+df = df.rename(columns={'time_series_name_y':'time_series_name'})
+df['diff'] = df['diff']-1
+df = df.sort_values('diff')
+df.plot(x='time_series_name',y='diff',kind='barh',title=ticker+" Key Drivers Revenue Sensitivity")
+```
+![KPI Rank](c3.png)
 
 
 ## Support
