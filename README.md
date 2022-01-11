@@ -13,7 +13,7 @@ Built by a former PM / analyst to give anyone with a little bit of Python knowle
 - Discover the KPIs with the greatest impact on stock price, and evaluate those KPIs based on changing P&L scenarios.
 - Visualize P&L statements in node trees with common size % and values attached. Use the built-in charting tools to efficiently make comparisons. 
 
-A data science library using Canalyst's API, developed for securities analysis using Python.  
+In short, a data science library using Canalyst's API, developed for securities analysis using Python.  
 - Search KPI
 - Company data Dataframes (one company or many)
 - Charts
