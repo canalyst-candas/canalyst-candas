@@ -3,7 +3,7 @@
 # Canalyst Candas Data Science Library
 
 ## Name
-Canalyst Candas 
+[Canalyst Candas](https://canalyst.com/candas/)
 
 ## Description
 Built by a former PM / analyst to give anyone with a little bit of Python knowledge the ability to scale their investment process. Access, manipulate, and visualize Canalyst models, without opening Excel. Work with full fundamental models, create and calculate scenarios, and visualize actionable investment ideas.
