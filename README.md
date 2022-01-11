@@ -8,6 +8,8 @@
 ## Description
 Built by a former PM / analyst to give anyone with a little bit of Python knowledge the ability to scale their investment process. Access, manipulate, and visualize Canalyst models, without opening Excel. Work with full fundamental models, create and calculate scenarios, and visualize actionable investment ideas.
 
+Hosted collaborative Jupyterhub server available at [Candas Cloud](http://candas.cloud/)
+
 - Rather than simply deliver data, Candas serves the actual model in a Python class. Like a calculator, this allows for custom scenario evaluation for one or more companies at a time.
 - Use Candas to search for KPIs by partial or full description, filter by “key driver” – model driver, sector, category, or query against values for a screener-like functionality.  Search either our full model dataset or our guidance dataset for companies which provide guidance.
 - Discover the KPIs with the greatest impact on stock price, and evaluate those KPIs based on changing P&L scenarios.
