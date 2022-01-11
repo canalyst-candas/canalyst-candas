@@ -6,13 +6,19 @@
 Canalyst Candas 
 
 ## Description
+Built by a former PM / analyst to give anyone with a little bit of Python knowledge the ability to scale their investment process. Access, manipulate, and visualize Canalyst models, without opening Excel. Work with full fundamental models, create and calculate scenarios, and visualize actionable investment ideas.
+
+- Rather than simply deliver data, Candas serves the actual model in a Python class. Like a calculator, this allows for custom scenario evaluation for one or more companies at a time.
+- Use Candas to search for KPIs by partial or full description, filter by “key driver” – model driver, sector, category, or query against values for a screener-like functionality.  Search either our full model dataset or our guidance dataset for companies which provide guidance.
+- Discover the KPIs with the greatest impact on stock price, and evaluate those KPIs based on changing P&L scenarios.
+- Visualize P&L statements in node trees with common size % and values attached. Use the built-in charting tools to efficiently make comparisons. 
+
 A data science library using Canalyst's API, developed for securities analysis using Python.  
 - Search KPI
 - Company data Dataframes (one company or many)
 - Charts
 - Model update (scenario analysis)
 - Visualize formula builds
-- Run scenarios against the model itself
 
 ## Installation
 Installation instructions can be found on our [PyPI page](https://pypi.org/project/canalyst-candas/)
@@ -23,7 +29,7 @@ Installation instructions can be found on our [PyPI page](https://pypi.org/proje
 
 Candas is built to facilitate easy discovery of guidance in our Modelverse.  You can search guidance for key items, either filtered by a ticker / ticker list or just across the entire Modelverse.
 
-Example:
+Guidance Example:
 
 ```
 canalyst_search.search_guidance_time_series(ticker = "", #any ticker or list of tickers 
@@ -36,9 +42,9 @@ canalyst_search.search_guidance_time_series(ticker = "", #any ticker or list of 
 
 <b>Search KPI:</b>
 
-Candas is built to facilitate easy discovery of KPI names in our Modelverse.  You can search guidance for key items, either filtered by a ticker / ticker list or just across the entire Modelverse.
+Candas is also built to facilitate easy discovery of KPI names in our Modelverse.
 
-Example:
+KPI Search Example:
 
 ```
 canalyst_search.search_time_series(ticker = "",
@@ -55,19 +61,20 @@ canalyst_search.search_time_series(ticker = "",
 <b>ModelSet:</b>
 
 The core objects in Candas are Models.
-Models can be also arranged in a set by instantiating a ModelFrame.
-In both cases, it's model_set = cd.ModelSet(ticker_list=[ticker_list],config=config)
-Or model = cd.Model(ticker=ticker,config=config)
+Models can be arranged in a set by instantiating a ModelFrame.
+Instantiate a config object to handle authentication.
 
-With either a model or modelset, model_frame returns Pandas dataframes.
-It is the workhorse of the Model or ModelSet objects, the default parameters are shown below:
-- Send in a partial string as time series name, model_frame will regex search for it
-- Pivot allows for excel-model style wide data (good for comp screens)
-- mrq filters to ONLY the most recent quarter
-- period_duration type is fiscal quarter or fiscal year or blank for both
-- is_historical is True will filter to only historical, False only forecasts, or blank for both
-- n_periods defaults to 12 but most of our models go back to 2013
-- mrq_notation applies to pivot, and will filter to historical data and apply MRQ-n notation on the columns (a way to handle off fiscal reporters in comp screens)
+model_set = cd.ModelSet(ticker_list=[ticker_list],config=config) 
+
+With modelset, the model_frame attribute returns Pandas dataframes.
+The parameters for model_frame():
+- time_series_name: Send in a partial string as time series name, model_frame will regex search for it
+- pivot: Pivot allows for excel-model style wide data (good for comp screens)
+- mrq: True / False filters to ONLY the most recent quarter
+- period_duration_type: is fiscal_quarter or fiscal_year or blank for both
+- is_historical: True will filter to only historical, False only forecasts, or blank for both
+- n_periods: defaults to 12 but most of our models go back to 2013
+- mrq_notation: applies to pivot, and will filter to historical data and apply MRQ-n notation on the columns (a way to handle off fiscal reporters in comp screens)
 
 Example:
 
