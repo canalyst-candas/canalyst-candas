@@ -179,13 +179,13 @@ df.plot(x='time_series_name',y='diff',kind='barh',title=ticker+" Key Drivers Rev
 
 
 ## Support
-support@canalyst.com
+candas@canalyst.com
 
 ## Contributing
 Project is currently only open to contributors through discussion with the maintainer.
 
 ## Authors and acknowledgment
-jed.gore@canalyst.com
+Jed Gore
 
 ## License
 APL 2.0 
